@@ -6,20 +6,16 @@ import (
 )
 
 func main(){
-	message, err := enterGo(10)
-	if err != nil{
-		fmt.Println(err)
-		return
-	}
+	messages := [3]string{"1", "2", "3"}
+	messages[2] = "5"
 	
-	fmt.Println(message)
+	printMessages(messages)
 }
+func printMessages(messages [3] string) error{
+	if len(messages) == 0{
+			return errors.New("Ошибка")
+	}
+   fmt.Println(messages)
 
-func enterGo(age int) (string, error){
-
-	if age >= 18{
-		return "Проходи", nil
-	} 
-		return "уходи", errors.New("you are too young")
-	
+	return nil
 }
